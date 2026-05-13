@@ -1,0 +1,19 @@
+{
+  "name": "inventory-management-app",
+  "version": "1.0.0",
+  "description": "An inventory management website for a fictional store utlizing an express/postgres backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch app.js",
+    "seed": "node db/populatedb.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "pg": "^8.20.0"
+  }
+}
