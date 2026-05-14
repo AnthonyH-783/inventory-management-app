@@ -1,0 +1,46 @@
+:root {
+  --color-bg: #F7F6F1;
+  --color-surface: #EEF0E8;
+  --color-surface-2: #DDE0D4;
+
+  --color-accent: #3B6D11;
+  --color-accent-hover: #27500A;
+
+  --color-text-primary: #1C2313;
+  --color-text-secondary: #5A6B48;
+
+  --color-badge-ok-bg: #D1FAE5;
+  --color-badge-ok-text: #065F46;
+  --color-badge-low-bg: #FEF9C3;
+  --color-badge-low-text: #713F12;
+  --color-badge-out-bg: #FEE2E2;
+  --color-badge-out-text: #991B1B;
+
+  --color-border: rgba(28, 35, 19, 0.12);
+  --color-border-hover: rgba(28, 35, 19, 0.25);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+
+}
+
+.instrument-serif-regular {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.dm-sans-400 {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-sans-500 {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
