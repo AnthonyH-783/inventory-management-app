@@ -3,9 +3,7 @@ require("dotenv").config();
 
 
 
-const SQLCommand = `
-
-
+const SQLCreateTables = `
 
 CREATE TABLE IF NOT EXISTS categories(
     id              INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -49,13 +47,7 @@ CREATE TABLE IF NOT EXISTS stock_log(
 );
 
 
-INSERT INTO categories (name) VALUES
-  ('Hand Tools'),
-  ('Power Tools'),
-  ('Fasteners'),
-  ('Electrical'),
-  ('Plumbing'),
-  ('Paint & Supplies');
+
 
 CREATE OR REPLACE FUNCTION set_update_at()
 RETURNS TRIGGER AS $$
@@ -72,6 +64,16 @@ WHEN(OLD IS DISTINCT FROM NEW)
 EXECUTE FUNCTION set_update_at();
 `;
 
+const SQLCreateCategories = `
+    INSERT INTO categories (name) VALUES
+    ('Hand Tools'),
+    ('Power Tools'),
+    ('Fasteners'),
+    ('Electrical'),
+    ('Plumbing'),
+    ('Paint & Supplies');
+`;
+
 
 
 async function main(){
@@ -85,7 +87,8 @@ async function main(){
         port: process.env.PGPORT
     });
     await client.connect();
-    await client.query(SQLCommand);
+    await client.query(SQLCreateTables);
+    await client.query(SQLCreateCategories);
     await client.end();
     console.log(`Populating db done`);
 }

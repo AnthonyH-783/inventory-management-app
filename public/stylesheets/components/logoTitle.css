@@ -1,0 +1,8 @@
+#logo{
+    background-color: var(--color-accent);
+    padding: 1rem;
+
+}
+#title{
+    font-size: 22px;
+}
