@@ -1,13 +1,13 @@
-<div class="stat-card card-radius flex-row gap-1rem">
-    <div class="stat-card-icon start-card-<%=variant%>">
+<div class="stat-card card-radius">
+    <div class="stat-card-icon flex-row justify-center align-center stat-card-icon-<%=card.variant%>">
         <%- card.svg %>
     </div>
 
-    <div class="flex-col">
-        <span><%=card.title%></span>
-        <strong><%=card.value%></strong>
+    <div class="stat-card-content flex-col">
+        <span class="dm-sans-400 secondary-text"><%=card.title%></span>
+        <strong class="dm-sans-500 metric"><%=card.value%></strong>
         <% if(card.subtitle){ %>
-            <span class="stat-card-<%=variant%>">
+            <span class="dm-sans-400 subtitle stat-card-<%=card.variant%>">
                 <%=card.subtitle %>
             </span>
         <% } %>

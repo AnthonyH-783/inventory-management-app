@@ -38,7 +38,7 @@ async function getOutOfStockItemsCount(){
 async function getInventoryValue(){
     const SQLCommand = `SELECT SUM(price * quantity) FROM items; `;
     const {rows} = await pool.query(SQLCommand);
-    const sum = rows[0].sum;
+    const sum = rows[0].sum ?? 0;
     return sum;
 }
 
