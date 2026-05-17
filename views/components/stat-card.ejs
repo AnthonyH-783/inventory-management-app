@@ -1,0 +1,18 @@
+<div class="stat-card card-radius flex-row gap-1rem">
+    <div class="stat-card-icon start-card-<%=variant%>">
+        <%- card.svg %>
+    </div>
+
+    <div class="flex-col">
+        <span><%=card.title%></span>
+        <strong><%=card.value%></strong>
+        <% if(card.subtitle){ %>
+            <span class="stat-card-<%=variant%>">
+                <%=card.subtitle %>
+            </span>
+        <% } %>
+        
+    </div>
+
+
+</div>

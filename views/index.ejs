@@ -11,8 +11,9 @@
     <script type="module" src="js/clientScript.js"></script>
 
 </head>
-<body>
-    <%-include("components/navbar") %>
+<body class="flex-row">
+    <%-include("partials/sidebar") %>
+    <%- include("partials/dashboard", {itemCount, categoryCount, inStock, lowStock, outOfStock, stockValue}) %>
     
 </body>
 </html>

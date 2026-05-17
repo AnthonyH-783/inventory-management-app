@@ -1,12 +1,16 @@
 
 function onNavItemSelect(e){
-const listItem = e.target.closest("li");
-if (
-  !listItem ||
-  listItem.tagName.toLowerCase() !== "li" ||
-  listItem.classList.contains("selected-item")
-) return;
+    const listItem = e.target.closest("li");
+    if (!listItem ||
+        listItem.tagName.toLowerCase() !== "li" ||
+        listItem.classList.contains("selected-item")) return;
+        
+    toggleNavHighlight(listItem);
 
+
+}
+
+function toggleNavHighlight(listItem){
     // Undoing previous selection
     const prev = listItem.closest("ul").querySelector(".selected-item");
     if(prev){
@@ -20,6 +24,7 @@ if (
     const text = listItem.querySelector("span");
     svg.setAttribute("stroke", "#27500A");
     text.classList.replace("dm-sans-400", "dm-sans-500");
+
 }
 
 export {onNavItemSelect};

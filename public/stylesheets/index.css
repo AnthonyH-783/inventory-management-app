@@ -81,6 +81,12 @@
 .gap-1rem{
   gap: 1rem;
 }
+.padding-1rem{
+  padding: 1rem;
+}
+.vpadding-1rem{
+  padding: 1rem 0;
+}
 
 .card-radius{
   border-radius: 12px;
@@ -98,15 +104,25 @@
   font-size: 14px;
   color: var(--color-text-secondary);
 }
+nav{
+  width: 100%;
+}
 
 .nav-items{
   list-style: none;
   color: #373737;
+  width: 100%;
 }
 
 .nav-items li{
-  padding: 1rem 0rem;
+  padding: 1rem;
   cursor: pointer;
+  width: 100%;
+
+}
+
+#nav-title{
+  padding: 1.5rem 1rem 1rem 1rem;
 }
 
 #tag{
@@ -116,6 +132,39 @@
 .selected-item{
   background-color: var(--color-selection);
   color: var(--color-accent);
+
+
+}
+
+#sidebar{
+  height: 100vh;
+  flex: 1;
+  border-right: 1px solid rgb(219, 216, 216);
+}
+
+#dashboard{
+  background-color: #F7F6F1;
+  flex: 5;
+  height: 100vh;
+  width: 82vw;
+  padding: 2.5rem;
+}
+#dashboard-header a{
+  text-decoration: none;
+  align-self: center;
+}
+#dashboard-header h2{
+  font-size: 30px;
+}
+.btn{
+  text-decoration: none;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 
