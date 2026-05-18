@@ -1,0 +1,56 @@
+<table  id="inventory-table">
+    <div class="table-search flex-row align-center justify-baseline gap-1rem padding-1rem">
+        <div class="search-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+            <input type="text" placeholder="Search items...">
+        </div>
+
+        <div class="select-wrapper">
+            <select name="category" id="category">
+                <option value="all" selected>All categories</option>
+                <option value="Hand Tools">Hand Tools</option>
+                <option value="Power Tools">Power Tools</option>
+                <option value="Fasteners">Fasteners</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Paint & Supplies">Paint & Supplies</option>
+            </select>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+
+        <button class="filter-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter-icon lucide-list-filter"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+            <span class="dm-sans-400">Low & out of stock</span>
+        </button>
+
+    </div>
+
+    <thead class="dm-sans-500 secondary-text">
+        <tr class="row">
+            <th class="item">Item</th>
+            <th>SKU</th>
+            <th>
+                <div class="svg-title-wrapper">
+                    <span>QTY</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                </div>
+
+             </th>
+            <th>
+                <div class="svg-title-wrapper">
+                    <span>PRICE</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon lucide-chevrons-up-down"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                </div>
+                
+            </th>
+            <th>STATUS</th>
+            <th>UPDATED</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    </tbody>
+
+    
+</table>
