@@ -216,21 +216,21 @@ nav{
 .subtitle{
   padding-top: 0.5rem;
 }
-.stat-card-icon-warning { background-color: #fef9e7; } 
+.stat-card-icon-warning, .warning-pill { background-color: #fef9e7; } 
 .stat-card-icon-warning svg {
    color: #e6a817;
    stroke: #e6a817;
    }
 
-.stat-card-icon-default { background-color: #e8f5e1; } 
+.stat-card-icon-default, .default-pill { background-color: #e8f5e1; } 
 .stat-card-icon-default svg { color: #4a9e2f; stroke: #2d671a; }
 
-.stat-card-icon-danger { background-color: #fdecea; }
+.stat-card-icon-danger, .danger-pill { background-color: #fdecea; }
 .stat-card-icon-danger svg { color: #d93025; stroke: #aa2412; }
 
-.stat-card-content span.stat-card-default { color: #26640d; }
-.stat-card-content span.stat-card-warning { color: #956b08; }
-.stat-card-content span.stat-card-danger  { color: #8a190a; }
+.stat-card-content span.stat-card-default, .default-pill { color: #26640d; }
+.stat-card-content span.stat-card-warning, .warning-pill { color: #956b08; }
+.stat-card-content span.stat-card-danger, .danger-pill { color: #8a190a; }
 
 #inventory-table{
   background-color: white;
@@ -337,4 +337,9 @@ table, thead, thead tr{
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+.status-pill{
+  padding: 0.4rem;
+  border-radius: 100%;
 }

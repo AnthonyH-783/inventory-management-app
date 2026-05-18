@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS categories(
 CREATE TABLE IF NOT EXISTS items(
     id              INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name            VARCHAR(50) NOT NULL,
+    image_url       TEXT DEFAULT 'https://placehold.co/50x50',
     category_id     INTEGER NOT NULL REFERENCES categories(id) ON DELETE RESTRICT,
     price           NUMERIC(10,2) NOT NULL CHECK (price >= 0),
     quantity        INTEGER NOT NULL DEFAULT 0 CHECK (quantity >= 0),
