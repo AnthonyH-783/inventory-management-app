@@ -1,12 +1,12 @@
-const { title } = require("node:process");
-const pool = require("../db/queries");
+
 const {getItemCount,
        getCategoryCount,
        getInStockItemsCount,
        getLowStockItemsCount,
        getOutOfStockItemsCount,
-       getInventoryValue } = require("../db/queries");
-const { subscribe } = require("node:diagnostics_channel");
+       getInventoryValue,
+       getItemsByCategory } = require("../db/queries");
+
 
 
 exports.getDashboardStats = async (req, res) => {
@@ -67,4 +67,6 @@ function formatStockPrice(stockPrice){
     if(!stockPrice) return formater.format(0);
     return formater.format(stockPrice);
 }
+
+
 

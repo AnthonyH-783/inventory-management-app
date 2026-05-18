@@ -1,8 +1,8 @@
 const express = require("express");
 const indexRouter = express.Router();
-const statsController = require("../controllers/statsController");
+const dashboardController = require("../controllers/dashboardController");
 
-indexRouter.get("/", statsController.getDashboardStats);
+indexRouter.get("/", dashboardController.getDashboardStats);
 
 
 module.exports = indexRouter;

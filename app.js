@@ -1,5 +1,6 @@
 const express = require("express");
 const indexRouter = require("./routes/index");
+const api = require("./routes/api");
 const path = require("node:path");
 require("dotenv").config();
 
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use("/", indexRouter);
+app.use("/api", api);
 
 
 
