@@ -75,6 +75,12 @@ const SQLCreateCategories = `
     ('Paint & Supplies');
 `;
 
+const addSampleItems = `
+    INSERT INTO items (name, category_id, sku, quantity, price) VALUES
+    ('Tape Measure 25ft', (SELECT id FROM categories WHERE name = 'Hand Tools'), 'HT-001', 8, 12.49),
+    ('Needle-Nose Pliers', (SELECT id FROM categories WHERE name = 'Hand Tools'), 'HT-002', 6, 14.99);
+`
+
 
 
 async function main(){

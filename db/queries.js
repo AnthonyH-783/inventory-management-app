@@ -15,7 +15,7 @@ async function getCategoryCount(){
 }
 
 async function getInStockItemsCount(){
-    const SQLCommand = `SELECT COUNT(*) FROM items WHERE quantity > 0;`;
+    const SQLCommand = `SELECT COUNT(*) FROM items WHERE quantity > threshold;`;
     const {rows} = await pool.query(SQLCommand);
     const count = rows[0].count;
     return count;

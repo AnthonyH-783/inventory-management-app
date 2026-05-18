@@ -18,6 +18,7 @@ exports.getDashboardStats = async (req, res) => {
         getOutOfStockItemsCount(),
         getInventoryValue()
     ]);
+
     const cards = [
         {
             svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box-icon lucide-box"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
@@ -50,7 +51,7 @@ exports.getDashboardStats = async (req, res) => {
         {
             svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dollar-sign-icon lucide-dollar-sign"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
             title: "Stock value",
-            value: stockValue,
+            value: formatStockPrice(stockValue),
             subtitle: "Entire inventory",
             variant: "default"
         }
@@ -59,3 +60,11 @@ exports.getDashboardStats = async (req, res) => {
     res.render("index", {itemCount, categoryCount, inStock, lowStock, outOfStock, stockValue, cards});
 
 }
+
+function formatStockPrice(stockPrice){
+    const params = { style: "currency", currency: "CAD", notation: "compact", currencyDisplay: 'narrowSymbol' };
+    const formater = new Intl.NumberFormat("en-CA", params);
+    if(!stockPrice) return formater.format(0);
+    return formater.format(stockPrice);
+}
+
