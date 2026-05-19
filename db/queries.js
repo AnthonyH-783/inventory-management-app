@@ -65,6 +65,30 @@ async function getLowStockItems(){
     return rows;
 }
 
+async function getItems(category, lowStock) {
+  let query = `
+    SELECT i.*, c.name AS category_name
+    FROM items i
+    JOIN categories c ON i.category_id = c.id
+    WHERE 1=1
+  `;
+
+  const params = [];
+
+  if (category && category !== 'all') {
+    params.push(category);
+    query += ` AND c.name = $${params.length}`;
+  }
+
+  if (lowStock) {
+    query += ` AND i.quantity <= i.threshold`;
+  }
+
+  const { rows } = await pool.query(query, params);
+  console.log(rows);
+  return rows;
+}
+
 module.exports = {
     getItemCount,
     getCategoryCount,
@@ -73,5 +97,6 @@ module.exports = {
     getOutOfStockItemsCount,
     getInventoryValue, 
     getItemsByCategory,
-    getLowStockItems
+    getLowStockItems,
+    getItems
 }

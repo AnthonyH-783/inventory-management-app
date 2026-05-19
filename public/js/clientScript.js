@@ -11,6 +11,11 @@ import { loadItems, loadLowStockItems } from "./api.js";
     const select = document.querySelector("select");
     const filter_btn = document.querySelector(".filter-btn");
 
+    const filters = {
+        category: 'all',
+        lowStock: false
+    };
+
     
 
 
@@ -18,16 +23,22 @@ import { loadItems, loadLowStockItems } from "./api.js";
         navItem.addEventListener("click", onNavItemSelect);
     });
     window.addEventListener("load", async () => {
-        const items = await loadItems();
+        const items = await loadItems(filters);
         populateTable(table_body, items);
     });
 
     select.addEventListener("change", async () => {
-        const items = await loadItems(select.value);
+        filters.category = select.value;
+        const items = await loadItems(filters);
         populateTable(table_body, items);
     });
 
-    filter_btn.addEventListener("click", onLowStockBtnClick);
+    filter_btn.addEventListener("click", async(e) => {
+        filters.lowStock = !filters.lowStock;
+        filter_btn.classList.toggle("success");
+        const items = await loadItems(filters);
+        populateTable(table_body, items);
+    });
 
 })();
 

@@ -26,6 +26,19 @@ exports.getLowStockItems = async(req, res) => {
         res.status(200).json(items);
     }
     catch(err){
-        res.status(500).json({error: message});
+        res.status(500).json({error: err.message});
+    }
+}
+
+exports.getItems = async(req, res) => {
+    try{
+        const {category, lowStock} = req.query;
+        
+        const items = await db.getItems(category, lowStock);
+        formatTableRows(items);
+        res.status(200).json(items);
+    }
+    catch(err){
+        res.status(500).json({error: err.message});
     }
 }

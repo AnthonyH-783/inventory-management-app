@@ -1,4 +1,4 @@
-export async function loadItems(category = "all"){
+export async function loadItems0(category = "all"){
     try{
         const url = `/api/${category}`;
         const res = await fetch(url);
@@ -9,6 +9,14 @@ export async function loadItems(category = "all"){
     catch(err){
         console.log(err);
     }
+}
+export async function loadItems({category, lowStock}){
+    const params = new URLSearchParams();
+    if(category && category !== 'all') params.append('category', category);
+    if(lowStock) params.append('lowStock', true);
+
+    const res = await fetch(`/api/items?${params}`);
+    return res.json();
 }
 
 export async function loadLowStockItems(){
