@@ -30,9 +30,9 @@ function populateTable(tbody, items){
 
     tbody.innerHTML = "";
     items.forEach(item => {
-        const variant = (item.quantity > item.threshold) ? "default-pill" :
-                        (item.quantity === 0) ? "danger-pill" : "warning-pill";
-        const text = {"default-pill": "In stock", "warning-pill": "Low stock", "danger-pill": "Out of stock"};
+        const variant = (item.quantity > item.threshold) ? "success" :
+                        (item.quantity === 0) ? "danger" : "warning";
+        const text = {"success": "In stock", "warning": "Low stock", "danger": "Out of stock"};
                     
         const row = document.createElement("tr");
         row.classList.add("row");
@@ -46,7 +46,7 @@ function populateTable(tbody, items){
         <td class="dm-sans-400">${item.sku}</td>
         <td class="dm-sans-400">${item.quantity}</td>
         <td class="dm-sans-400">${item.price}</td>
-        <td class="dm-sans-400">
+        <td class="dm-sans-500">
             <div class="status-pill ${variant}">
                 <span>${text[variant]}</span>
             </div>
@@ -63,6 +63,7 @@ function populateTable(tbody, items){
     
 
 }
+
 
 
 

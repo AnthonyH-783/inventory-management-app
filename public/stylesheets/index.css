@@ -341,5 +341,21 @@ table, thead, thead tr{
 
 .status-pill{
   padding: 0.4rem;
-  border-radius: 100%;
+  border-radius: 9999px;
+  font-size: 14px;
+  padding: 6px 16px;
+}
+
+.warning{
+  background-color: #FEF9E7;
+  color: #7b5109;
+}
+
+.danger{
+  background-color: #FEF2F2;
+  color: #991B1B;
+}
+.success{
+  background-color: #F0FDF4;
+  color: #166534;
 }

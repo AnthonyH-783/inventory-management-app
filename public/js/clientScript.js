@@ -1,6 +1,7 @@
 import { onNavItemSelect, populateTable } from "./handlers.js";
 import { loadItems } from "./api.js";
 
+
 (function ScreenController(){
     const nav = document.querySelector("nav");
     const navList = nav.querySelector(".nav-items");
@@ -18,9 +19,11 @@ import { loadItems } from "./api.js";
 
         const items = await loadItems();
         console.log(items);
+
         populateTable(table_body, items);
         
 
     });
 
 })();
+
