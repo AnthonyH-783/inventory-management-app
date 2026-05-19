@@ -1,7 +1,14 @@
 const {intlFormatDistance} = require("date-fns");
 
-exports.formatPrice = (stockPrice) => {
+exports.formatInventoryPrice = (stockPrice) => {
     const params = { style: "currency", currency: "CAD", notation: "compact", currencyDisplay: 'narrowSymbol' };
+    const formater = new Intl.NumberFormat("en-CA", params);
+    if(!stockPrice) return formater.format(0);
+    return formater.format(stockPrice);
+}
+
+exports.formatPrice = (stockPrice) => {
+    const params = { style: "currency", currency: "CAD" };
     const formater = new Intl.NumberFormat("en-CA", params);
     if(!stockPrice) return formater.format(0);
     return formater.format(stockPrice);
@@ -15,8 +22,7 @@ exports.formatLastUpdated = (date) =>{
 
 exports.formatTableRows = (items) => {
     items.forEach((item) => {
-        console.log(item);
-        item.price = this.formatPrice(parseInt(item.price));
+        item.price = this.formatPrice((item.price));
         item.updated_at = this.formatLastUpdated(item.updated_at); 
     })
 }

@@ -50,11 +50,18 @@ async function getItemsByCategory(category) {
         const { rows } = await pool.query('SELECT * FROM items');
         return rows;
     }
-
-    const category_id = (await pool.query('SELECT category_id FROM categories WHERE name = $1', [category])).rows[0]?.category_id;
+    
+    const category_id = (await pool.query('SELECT id FROM categories WHERE name = $1', [category])).rows[0]?.id;
     if (!category_id) return; // guard if category name not found in DB
 
     const { rows } = await pool.query('SELECT * FROM items WHERE category_id = $1', [category_id]);
+    return rows;
+}
+
+async function getLowStockItems(){
+    const SQLCommand = `SELECT * FROM items WHERE quantity <= threshold;`;
+    const {rows} = await pool.query(SQLCommand);
+    console.log(rows);
     return rows;
 }
 
@@ -65,5 +72,6 @@ module.exports = {
     getLowStockItemsCount,
     getOutOfStockItemsCount,
     getInventoryValue, 
-    getItemsByCategory
+    getItemsByCategory,
+    getLowStockItems
 }
