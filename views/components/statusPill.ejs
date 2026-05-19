@@ -1,5 +1,7 @@
+<% const statusToTextMap = {success: "In stock", warning: "Low stock", danger: "Out of stock"}; %>
+
 <div class="status-pill <%=pillStatus%>">
     
-    <span><%=stockQty%></span>
+    <span><%=statusToTextMap[pillStatus]%></span>
 
 </div>

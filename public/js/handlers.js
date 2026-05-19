@@ -86,8 +86,57 @@ async function onLowStockBtnClick(e){
 
 }
 
+function stockInputChangeHandler(e){
+
+        const container = e.target.closest(".price-stock");
+        console.log("hi");
+        if(!container) return;
+        const qtyInput = container.querySelector("#quantity");
+        const thresholdInput = container.querySelector("#threshold");
+        const pills = container.querySelector("#pill-selection");
+
+       
+        const quantity = Number(qtyInput.value);
+        const threshold = Number(thresholdInput.value);
+
+        if(quantity !== "" && threshold !== ""){
+             let index;
+        if(quantity === 0){
+            index = 2; // danger
+        } else if(quantity <= threshold){
+            index = 1; // warning
+        } else {
+            index = 0; // success
+}
+            console.log(index);
+            selectStockBtn(pills, index);
+
+        }
+    };
+
+function selectStockBtn(pills, index){
+    // Unselect previous one
+    const prev = pills.querySelector(".selected");
+    const map = {0: ".success", 1: ".warning", 2: ".danger"};
+    if(prev){
+        prev.style.borderWidth = "1px";
+        prev.classList.remove("selected");
+        prev.style.fontWeight = 400;
+    
+    }
+
+    // Selecting new pill
+    console.log(index);
+    const pill = pills.querySelector(map[index]);
+    pill.classList.add("selected");
+    pill.style.borderWidth = "2px";
+    pill.style.fontWeight = 600;
+    
+
+    }
 
 
-export {onNavItemSelect, populateTable, onLowStockBtnClick};
+
+export {onNavItemSelect, populateTable, onLowStockBtnClick, stockInputChangeHandler, selectStockBtn};
 
 

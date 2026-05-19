@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <script type="module" src="/js/itemFormController.js" defer></script>
+    <title><%=title%></title>
+</head>
+<body>
+    <form class="dm-sans-400" action="/api/items" method="post" id="new-item-form">
+        <div class="form-controls">
+            <h3 class="dm-sans-500">Add new item</h3>
+            <div class="form-btns flex-row gap-1rem">
+                <a href="/">
+                    <button class="cancel-btn" type="button">Cancel</button>
+                </a>
+                <button class="btn" type="submit">Save</button>
+            </div>
+        </div>
+
+        <div class="form-body">
+            <div class="basic-info">
+                <div class="card-title">
+                    <h3>BASIC INFORMATION</h3>
+                </div>
+                <div class="form-card-row">
+                    <label for="item_name" class="required">Item name</label>
+                    <input type="text" placeholder="e.g. Hammer Claw 16oz">
+                </div>
+                <div class="form-card-row flex-row">
+                    <div>
+                        <label for="sku" class="required">SKU</label>
+                        <input type="text" placeholder="e.g. HT-003">
+                    </div>
+                    <div>
+                        <label for="category" class="required">Category</label>
+                        <div class="select-wrapper">
+                            <select name="category" id="category">
+                                <option value="all" selected>All categories</option>
+                                <option value="Hand Tools">Hand Tools</option>
+                                <option value="Power Tools">Power Tools</option>
+                                <option value="Fasteners">Fasteners</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Plumbing">Plumbing</option>
+                                <option value="Paint & Supplies">Paint & Supplies</option>
+                            </select>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="price-stock">
+                <div class="card-title">
+                    <h3>PRICING & STOCK</h3>
+                </div>
+                <div class="form-card-row flex-row">
+                    <div>
+                        <label for="unit_price" class="required">Unit Price</label>
+                        <input type="number" min="0" placeholder="$ 0.00" required>
+                    </div>
+                    <div>
+                        <label for="quantity" class="required">Quantity</label>
+                        <input id="quantity" type="number" min="0" placeholder="0" required>
+                    </div>
+                </div>
+
+                <div class="form-card-row">
+                        <label for="threshold" class="required">Threshold (to become low stock)</label>
+                        <input  id="threshold"  type="number" min="0" placeholder="10" required>
+                </div>
+
+                <div class="form-card-row">
+                    <label for="stock">Stock Status</label>
+                     <div class="hidden">
+                        <input type="radio" name="stock" id="in-stock">
+                        <input type="radio" name="stock" id="low-stock">
+                        <input type="radio" name="stock" id="out-of-stock">
+                     </div>
+                     <div id="pill-selection" class="flex-row">
+
+                        <%-include("../components/statusPill", {pillStatus: "success"}) %>
+                        <%-include("../components/statusPill", {pillStatus: "warning"}) %>
+                        <%-include("../components/statusPill", {pillStatus: "danger"}) %>
+                     </div>
+                </div>
+
+            </div>
+            <div class="item-img">
+                <div class="card-title">
+                    <h3>ITEM IMAGE</h3>
+                     <div class="form-card-row">
+                        <label for="image_url">Image URL</label>
+                        <input type="text" name="image_url" id="image-url">
+                     </div>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

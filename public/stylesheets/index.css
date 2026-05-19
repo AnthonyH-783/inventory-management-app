@@ -15,6 +15,7 @@
 
   --color-text-primary: #1C2313;
   --color-text-secondary: #5A6B48;
+  --color-border: #e0e0e0;
 
   --color-badge-ok-bg: #D1FAE5;
   --color-badge-ok-text: #065F46;
@@ -380,5 +381,124 @@ td, th {
 }
 
 .filter-btn{
+  cursor: pointer;
+}
+
+#new-item-form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100vw;
+  padding-bottom: 30vh;
+  background-color: var(--color-bg);
+}
+
+#new-item-form .form-controls{
+  background-color: white;
+  width: 100%;
+  padding: 1.5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+}
+
+.form-controls h3{
+  font-size: 30px;
+
+}
+
+a{
+  text-decoration: none;
+}
+.cancel-btn{
+  text-decoration: none;
+  border: none;
+  background-color: #d1d7d1;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  
+}
+
+.form-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 50vw;
+}
+
+.form-body label{
+  padding-bottom: 1rem;
+}
+
+.basic-info, .price-stock, .item-img{
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-title{
+
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1rem;
+}
+
+.card-title h3{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-bottom: 0.5rem;
+  font-weight: 100;
+  color: #4c4b4b;
+}
+.required::after{
+  content: "*";
+  color: #9c0808;
+  font-size: 18px;
+}
+.basic-info input, .price-stock input, #image-url{
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: #f8f7f7;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+.basic-info .select-wrapper, .basic-info select{
+  background-color: #f8f7f7;
+}
+
+.form-card-row{
+  width: 100%;
+
+}
+.form-card-row input, .form-card-row .select-wrapper, #pill-selection {
+  margin-top: 0.4rem;
+}
+
+.form-body div{
+  gap: 1rem;
+}
+
+.hidden{
+  display: none;
+}
+.thick-border{
+  border-width: 5px;
+}
+
+.price-stock .status-pill{
+  border: 1px solid;
   cursor: pointer;
 }
