@@ -1,4 +1,6 @@
-import { onNavItemSelect, populateTable, onLowStockBtnClick } from "./handlers.js";
+import { onNavItemSelect, populateTable, onLowStockBtnClick, onMoreOptionsClick,
+    onDropdownOptionSelection
+} from "./handlers.js";
 import { loadItems, loadLowStockItems } from "./api.js";
 
 
@@ -39,6 +41,16 @@ import { loadItems, loadLowStockItems } from "./api.js";
         const items = await loadItems(filters);
         populateTable(table_body, items);
     });
+
+    table_body.addEventListener("click", (e) => {
+        if(!(e.target.closest(".dropdown"))){
+            table_body.querySelectorAll(".dropdown").forEach((dropdown) => dropdown.classList.add("hidden"));
+        }
+    })
+
+    table_body.addEventListener("click",onMoreOptionsClick);
+
+    table_body.addEventListener("click", onDropdownOptionSelection);
 
 })();
 

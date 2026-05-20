@@ -449,11 +449,22 @@ a{
   align-items: flex-start;
 }
 
+.card-template{
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .card-title{
 
   width: 100%;
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 1rem;
+  color: #ede4e4;
 }
 
 .card-title h3{
@@ -501,4 +512,55 @@ a{
 .price-stock .status-pill{
   border: 1px solid;
   cursor: pointer;
+}
+
+.dropdown{
+  position: absolute;
+  right: 4rem;
+  padding: 0.5rem;
+  min-width: 200px;
+}
+
+.dropdown-title{
+  
+  color: #9a9999;
+  
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 0.8;
+}
+
+.dropdown-body{
+  font-size: 14px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+}
+.dropdown-body .svg-title-wrapper{
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+.dropdown-body .svg-title-wrapper:hover{
+  background-color: #f3f1f1;
+  cursor: pointer;
+}
+
+.dropdown-delete{
+  padding: 3rem 0 0.5rem 0;
+  color: #d63b3b;
+}
+
+.gray-border-top{
+  border-top:  1px solid var(--color-border);;
+}
+
+.dropdown-btn {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    width: 100%;
 }
