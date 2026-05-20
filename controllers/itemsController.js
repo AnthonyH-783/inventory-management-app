@@ -23,7 +23,7 @@ exports.postItemForm = async (req, res)  => {
     try{
         const attributes = Object.assign({created_at: new Date(), updated_at: new Date()}, req.body);
         await db.addItem(attributes);
-        res.status(201).json(attributes);
+        res.redirect("/");
 
     }
     catch(err){

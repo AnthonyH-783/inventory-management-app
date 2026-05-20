@@ -31,7 +31,7 @@
                 <div class="form-card-row flex-row">
                     <div>
                         <label for="sku" class="required">SKU</label>
-                        <input type="text" placeholder="e.g. HT-003">
+                        <input name="sku" type="text" placeholder="e.g. HT-003">
                     </div>
                     <div>
                         <label for="category" class="required">Category</label>
@@ -60,17 +60,17 @@
                 <div class="form-card-row flex-row">
                     <div>
                         <label for="unit_price" class="required">Unit Price</label>
-                        <input type="number" min="0" placeholder="$ 0.00" required>
+                        <input name="price" type="number" step="0.01" min="0" placeholder="$ 0.00" required>
                     </div>
                     <div>
                         <label for="quantity" class="required">Quantity</label>
-                        <input id="quantity" type="number" min="0" placeholder="0" required>
+                        <input name="quantity" id="quantity" type="number" min="0" placeholder="0" required>
                     </div>
                 </div>
 
                 <div class="form-card-row">
                         <label for="threshold" class="required">Threshold (to become low stock)</label>
-                        <input  id="threshold"  type="number" min="0" placeholder="10" required>
+                        <input name="threshold"  id="threshold"  type="number" min="0" placeholder="10" required>
                 </div>
 
                 <div class="form-card-row">

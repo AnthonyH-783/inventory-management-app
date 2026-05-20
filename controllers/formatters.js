@@ -26,3 +26,10 @@ exports.formatTableRows = (items) => {
         item.updated_at = this.formatLastUpdated(item.updated_at); 
     })
 }
+
+exports.formatPercentage = (inStock, itemCount) => {
+
+    if(!itemCount) return;
+    let percentage = (inStock != 0) ? ((inStock/itemCount)* 100) : 0;
+    return percentage.toFixed(1) + "%";
+}
