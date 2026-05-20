@@ -14,7 +14,6 @@ export async function loadItems({category, lowStock}){
     const params = new URLSearchParams();
     if(category && category !== 'all') params.append('category', category);
     if(lowStock) params.append('lowStock', true);
-
     const res = await fetch(`/api/items?${params}`);
     return res.json();
 }
