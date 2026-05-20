@@ -74,34 +74,36 @@ async function getItems(category, lowStock) {
     WHERE 1=1
   `;
 
-
   const params = [];
-    console.log("before if statement");
-    console.log(category, lowStock);
   if (category && category !== 'all') {
     params.push(category);
     query += ` AND c.name = $${params.length}`;
   }
-
-      console.log("After first if statement");
   if (lowStock) {
     query += ` AND i.quantity <= i.threshold`;
   }
-  console.log(query);
   const { rows } = await pool.query(query, params);
   return rows;
 }
 
 async function addItem({name, category, price, quantity, threshold, sku, image_url, created_at, updated_at}){
 
-    const query = `INSERT INTO items(name, 
-                 SELECT id FROM categories AS c WHERE c.name = $2 ,
-                 price, quantity, threshold, sku, created_at, updated_at)
-                 VALUES
-                 ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    let query = `INSERT INTO items(name, 
+                 category_id ,
+                 price,
+                 quantity,
+                 threshold,
+                 sku,
+                 created_at,
+                 updated_at) VALUES
+                 ($1,
+                 (SELECT id FROM categories WHERE name = $2),
+                  $3, $4, $5, $6, $7, $8)
                  `;
+    const params = [name, category, price, quantity, threshold, sku, created_at, updated_at];
 
-                
+    await pool.query(query, params);
+    
 
 }
 

@@ -3,6 +3,7 @@ const api = express.Router();
 const itemsController = require("../controllers/itemsController");
 
 api.get("/items", itemsController.getItems);
+api.post("/items", itemsController.postItemForm);
 
 
 
