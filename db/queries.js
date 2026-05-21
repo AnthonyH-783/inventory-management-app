@@ -104,7 +104,19 @@ async function addItem({name, category, price, quantity, threshold, sku, image_u
 
     await pool.query(query, params);
     
+}
 
+async function getItem(itemId){
+
+    const query = ` SELECT items.*, categories.name category_name
+                    FROM items
+                    INNER JOIN categories
+                    ON items.category_id = categories.id
+                    WHERE items.id = $1
+                    `;
+
+    const {rows} = await pool.query(query, [itemId]);
+    return rows[0];
 }
 
 module.exports = {
@@ -117,5 +129,6 @@ module.exports = {
     getItemsByCategory,
     getLowStockItems,
     getItems,
-    addItem
+    addItem,
+    getItem
 }

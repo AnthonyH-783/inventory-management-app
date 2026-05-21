@@ -555,6 +555,9 @@ a{
 .gray-border-top{
   border-top:  1px solid var(--color-border);;
 }
+.dropdown form{
+  width: 100%;
+}
 
 .dropdown-btn {
     all: unset;

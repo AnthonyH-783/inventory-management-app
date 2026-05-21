@@ -30,3 +30,20 @@ exports.postItemForm = async (req, res)  => {
         res.status(500).json({error: err.message});
     }
 }
+
+exports.getUpdateItemForm = async (req, res) => {
+    // Retrieving item info
+    try{
+        // Extracting id
+        const itemId = req.params.itemId;
+        if(!itemId) throw new Error("itemId not found in request parameters");
+        // Retrieving current data from database
+        const item = await db.getItem(itemId);
+        // Rendering edit form with item data
+        res.render("partials/editItem", {title: "Update Item", item});
+    }
+    catch(err){
+        res.status(500).json({error: err.message});
+    }
+
+}
