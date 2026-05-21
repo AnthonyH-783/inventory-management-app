@@ -45,5 +45,16 @@ exports.getUpdateItemForm = async (req, res) => {
     catch(err){
         res.status(500).json({error: err.message});
     }
+}
 
+exports.postUpdateItemForm = async (req, res) => {
+    try{
+        req.body.updated_at = new Date();
+        const itemId = req.params.itemId;
+        await db.updateItem(itemId, req.body);
+        res.redirect("/");
+    }
+    catch(err){
+        res.status(500).json({error: err.message});
+    }
 }

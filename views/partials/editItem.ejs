@@ -8,7 +8,7 @@
     <title><%=title%></title>
 </head>
 <body>
-    <form class="dm-sans-400" action="/items/:itemId/edit" method="post" id="new-item-form">
+    <form class="dm-sans-400" action="/api/items/<%=item.id%>/edit" method="post" id="new-item-form">
         <div class="form-controls">
             <h3 class="dm-sans-500">Update Item</h3>
             <div class="form-btns flex-row gap-1rem">
@@ -38,12 +38,12 @@
                         <div class="select-wrapper">
                             <select name="category" id="category">
                                 <option value="all">All categories</option>
-                                <option <%= item.category === 'Hand Tools' ? 'selected' : '' %> value="Hand Tools">Hand Tools</option>
-                                <option <%= item.category === 'Power Tools' ? 'selected' : '' %>  value="Power Tools">Power Tools</option>
-                                <option <%= item.category === 'Fasteners' ? 'selected' : '' %>  value="Fasteners">Fasteners</option>
-                                <option <%= item.category === 'Electrical' ? 'selected' : '' %>  value="Electrical">Electrical</option>
-                                <option <%= item.category === 'Plumbing' ? 'selected' : '' %>  value="Plumbing">Plumbing</option>
-                                <option <%= item.category === 'Paint & Supplies' ? 'selected' : '' %>  value="Paint & Supplies">Paint & Supplies</option>
+                                <option <%= item.category_name === 'Hand Tools' ? 'selected' : '' %> value="Hand Tools">Hand Tools</option>
+                                <option <%= item.category_name === 'Power Tools' ? 'selected' : '' %>  value="Power Tools">Power Tools</option>
+                                <option <%= item.category_name === 'Fasteners' ? 'selected' : '' %>  value="Fasteners">Fasteners</option>
+                                <option <%= item.category_name === 'Electrical' ? 'selected' : '' %>  value="Electrical">Electrical</option>
+                                <option <%= item.category_name === 'Plumbing' ? 'selected' : '' %>  value="Plumbing">Plumbing</option>
+                                <option <%= item.category_name === 'Paint & Supplies' ? 'selected' : '' %>  value="Paint & Supplies">Paint & Supplies</option>
                             </select>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                         </div>

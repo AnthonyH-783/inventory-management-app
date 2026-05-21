@@ -119,6 +119,24 @@ async function getItem(itemId){
     return rows[0];
 }
 
+async function updateItem(itemId , {name, category, price, quantity, threshold, sku, updated_at, image_url}){
+
+    const query = `UPDATE items
+                   SET name = $1,
+                   category_id = (SELECT id FROM categories WHERE name = $2),
+                   price = $3,
+                   quantity = $4,
+                   threshold = $5,
+                   sku = $6,
+                   updated_at = $7,
+                   image_url = $8
+                   WHERE id = $9 
+                 `;
+    const params = [name, category, price, quantity, threshold, sku, updated_at, image_url, itemId];
+
+    await pool.query(query, params);
+}
+
 module.exports = {
     getItemCount,
     getCategoryCount,
@@ -130,5 +148,6 @@ module.exports = {
     getLowStockItems,
     getItems,
     addItem,
-    getItem
+    getItem,
+    updateItem
 }
