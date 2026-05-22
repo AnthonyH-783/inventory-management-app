@@ -50,11 +50,22 @@ exports.getUpdateItemForm = async (req, res) => {
 exports.postUpdateItemForm = async (req, res) => {
     try{
         req.body.updated_at = new Date();
-        const itemId = req.params.itemId;
+        const {itemId} = req.params;
         await db.updateItem(itemId, req.body);
         res.redirect("/");
     }
     catch(err){
         res.status(500).json({error: err.message});
+    }
+}
+
+exports.postDeleteItem = async (req, res) => {
+    try{
+        const {itemId} = req.params;
+        await db.deleteItem(itemId);
+        res.redirect("/");
+    }
+    catch(err){
+        res.status(500).json({error: err.msg});
     }
 }

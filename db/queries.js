@@ -137,6 +137,12 @@ async function updateItem(itemId , {name, category, price, quantity, threshold, 
     await pool.query(query, params);
 }
 
+async function deleteItem(itemId){
+    const query = `DELETE FROM items WHERE id = $1`;
+
+    await pool.query(query, [itemId]);
+}
+
 module.exports = {
     getItemCount,
     getCategoryCount,
@@ -149,5 +155,6 @@ module.exports = {
     getItems,
     addItem,
     getItem,
-    updateItem
+    updateItem,
+    deleteItem
 }
